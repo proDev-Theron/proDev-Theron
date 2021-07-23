@@ -1,8 +1,6 @@
 <h1 align="center">Hi 👋, I'm Theron Bueno</h1>
 <h3 align="center">I make the world a better place by doing my calling with passion and skills that come with God's favor.</h3>
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=prodev-theron" alt="prodev-theron" /></a> </p>
-
 - 🌱 I’m currently learning **Cloud Computing and Data Science**
 
 - 💬 Ask me about **anything**
