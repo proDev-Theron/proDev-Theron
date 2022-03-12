@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, I'm Theron Bueno</h1>
 <h3 align="center">I make the world a better place by doing my calling with passion and skills that come with God's favor.</h3>
 
-- 🌱 I’m currently learning **Cloud Computing and Data Science**
+- 🌱 I’m currently learning **Cloud Computing and Project Management**
 
 - 💬 Ask me about **anything**
 
