@@ -1,11 +1,9 @@
 <h1 align="center">Hi 👋, I'm Theron Bueno</h1>
 <h3 align="center">I make the world a better place by doing my calling with passion and skills that come with God's favor.</h3>
 
-- 🌱 I’m currently learning **Cloud Computing and Project Management**
+- 🌱 I’m currently learning **Cloud Computing, IoT and AI Engineering**
 
 - 💬 Ask me about **anything**
-
-- 📫 Email me at **prodev.theron@gmail.com**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
