@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, I'm Theron Bueno</h1>
 <h3 align="center">I make the world a better place by doing my calling with passion and skills that come with God's favor.</h3>
 
-- 🌱 I’m currently learning **Cloud Computing, IoT and AI Engineering**
+- 🌱 I’m currently preparing for **AZ-204**
 
 - 💬 Ask me about **anything**
 
