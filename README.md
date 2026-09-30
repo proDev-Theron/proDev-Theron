@@ -1,8 +1,8 @@
 # Theron Bueno
 
-**Site Reliability Engineer** · Kubernetes · AWS · Azure · OpenShift · Observability · AIOps · Metro Manila, Philippines
+**Site Reliability Engineer for fintech and regulated SaaS** · AWS · Azure · Kubernetes · Observability · AIOps · Metro Manila, Philippines
 
-I keep production systems up for banks and SaaS platforms. SRE at a digital bank. Previously SRE and backend engineer at ING.
+I keep production systems up and make every change safe and auditable. SRE at a digital bank. Previously SRE and backend engineer at ING.
 
 **Available for remote SRE contracts · UTC+8** · [Email me](mailto:prodev.theron@gmail.com)
 
@@ -11,9 +11,8 @@ I keep production systems up for banks and SaaS platforms. SRE at a digital bank
 - **Recovered 130,000+ stuck transactional emails in 90 minutes, with none lost,** during an SMTP outage. I tuned Postfix concurrency and worker allocation and worked through the queue in targeted batches.
 - **Eliminated intermittent 504s at the production ingress.** I traced them to an ALB/Istio idle timeout mismatch and shipped a mesh-wide proxy fix through Terraform with zero downtime.
 - **Upgraded EKS with zero downtime** through an automated two-phase rollout using Terraform and Karpenter disruption budgets.
-- **Acknowledged 277 production alerts with a 3.7-minute median, 38% faster than the team median,** mostly on after-hours on-call for a legal tech SaaS platform.
-- **Executed 69 production change requests** (38 deployments, 9 emergency changes): 88% successful, about 6% rolled back.
-- **Closed 128 cloud service requests** (access grants, decommissions, database refreshes), 70% within 7 days.
+- **Responded to production alerts in a 3.7-minute median vs the team's 6.0 minutes** across 277 alerts while on call for a legal tech SaaS platform.
+- **Ran 69 production changes through change management** (38 deployments, 9 emergency changes), each with a change request and recorded outcome; about 6% rolled back safely.
 - **Expanded Dynatrace coverage and proactive alerting** on critical banking services so incidents are caught earlier.
 - **Made Elastic Stack upgrades safe across 100+ nodes** with Ansible tasks that check cluster health before applying changes. I also reordered shard allocation and node shutdown to stabilize DR exercises.
 - **Closed security findings:** remediated flagged vulnerabilities across 100+ RHEL VMs and resolved all high-severity code-scan findings in three Go services.
@@ -23,6 +22,23 @@ I keep production systems up for banks and SaaS platforms. SRE at a digital bank
 - **Azure DevOps pipeline watcher:** monitors multi-hour deployment pipelines, classifies failed stages (timeout, transient, data validation, fatal), and auto-retries only the safe ones. It never reruns real migration errors.
 - **Salesforce ops agent:** works cases, incidents, and change requests from a pasted link. Every write needs explicit human approval, enforced by tool permissions rather than instructions.
 - **Squadcast metrics pipeline:** read-only API export that works within the 1,000-incident and 6-month limits, checks attribution against raw logs, and outputs aggregates only.
+
+## How I think
+
+I use mental models, the latticework Charlie Munger describes, as everyday working tools. Where each one paid off:
+
+| Model | How I applied it | Result |
+| --- | --- | --- |
+| **Inversion**: ask how it fails, then prevent that | Listed how customer traffic could drop during EKS upgrades and capped node disruption per workload | Zero-downtime upgrades |
+| **First principles**: fix the cause, not the symptom | Traced random 504s to mismatched ALB and Istio idle timeouts, fixed at the root mesh-wide | 100% of those errors gone |
+| **Second-order thinking**: ask "and then what?" | Released 130,000 queued emails in controlled batches instead of all at once | All delivered in 90 minutes, none lost |
+| **Margin of safety**: leave room for being wrong | AI ops tools can't write without human approval; upgrades run only after health checks pass | 100+ nodes upgraded safely |
+| **Checklists**: make the safe path the default | Every production change followed the same plan, window, rollback, and recorded outcome | 69 changes, about 6% rolled back safely |
+| **The map is not the territory**: check the source | Verified on-call attribution against raw logs before publishing any number | On-call numbers checked against raw logs |
+
+## Start here
+
+A fixed-price **2-week reliability review**: architecture walkthrough, a look at your alerts, incidents, and change process, then a written report ranking your top risks by business impact, plus fixes for the quick wins. Continue monthly if it's useful. [Ask about a review](mailto:prodev.theron@gmail.com?subject=Reliability%20review)
 
 ## Experience
 
