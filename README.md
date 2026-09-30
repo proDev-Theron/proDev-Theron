@@ -2,7 +2,9 @@
 
 **Site Reliability Engineer** · Kubernetes · AWS · Azure · OpenShift · Observability · AIOps · Metro Manila, Philippines
 
-SRE at a digital bank, a digital bank in the Philippines. Previously SRE and backend engineer at ING.
+I keep production banking systems up. SRE at a digital bank, a digital bank in the Philippines. Previously SRE and backend engineer at ING.
+
+**Available for remote SRE contracts · UTC+8** · [Email me](mailto:prodev.theron@gmail.com)
 
 ## Highlights
 
