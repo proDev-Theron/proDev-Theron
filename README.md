@@ -1,21 +1,51 @@
 # Theron Bueno
 
-Site Reliability Engineer for banking platforms, with a software engineering and SRE background at ING Bank. Interested in observability, production reliability, and dependable services.
+**Site Reliability Engineer** · Kubernetes · AWS · Azure · OpenShift · Observability · AIOps · Metro Manila, Philippines
+
+SRE at a digital bank, a digital bank in the Philippines. Previously SRE and backend engineer at ING.
+
+## Highlights
+
+- **Recovered 130,000+ stuck transactional emails in 90 minutes, with none lost,** during an SMTP outage. I tuned Postfix concurrency and worker allocation and worked through the queue in targeted batches.
+- **Eliminated intermittent 504s at the production ingress.** I traced them to an ALB/Istio idle timeout mismatch and shipped a mesh-wide proxy fix through Terraform with zero downtime.
+- **Upgraded EKS with zero downtime** through an automated two-phase rollout using Terraform and Karpenter disruption budgets.
+- **Expanded Dynatrace coverage and proactive alerting** on critical banking services so incidents are caught earlier.
+- **Made Elastic Stack upgrades safe across 100+ nodes** with Ansible tasks that check cluster health before applying changes. I also reordered shard allocation and node shutdown to stabilize DR exercises.
+- **Closed security findings:** remediated flagged vulnerabilities across 100+ RHEL VMs and resolved all high-severity code-scan findings in three Go services.
 
 ## Experience
 
-- **Site Reliability Engineer, a digital bank** | Dec 2025 - Present
-- **Software Engineer & Site Reliability Engineer, ING Bank** | Dec 2023 - Dec 2025
+**Site Reliability Engineer, a digital bank** · Dec 2025 – present\
+AWS (EKS, EC2), Kubernetes, Karpenter, Istio, Terraform, Dynatrace, AWS DevOps Agent and AI-assisted operations, Postfix, GitLab CI
 
-## Technologies
+**Site Reliability Engineer, ING Hubs Philippines** · Dec 2024 – Dec 2025\
+Azure, RHEL, OpenShift, Elastic Stack (ELK), LGTM (Loki, Grafana, Tempo, Mimir), Ansible, disaster recovery planning and execution, capacity management, alert routing to Microsoft Teams
 
-| Software | Infrastructure | Observability |
-| --- | --- | --- |
-| Python, Bash, Java, Node.js | Linux, Docker, Kubernetes, AWS, Azure, GitLab CI/CD | Dynatrace, Elastic Stack (ELK), Grafana |
+**Backend Engineer, ING Hubs Philippines** · Dec 2023 – Dec 2024\
+Java (Spring Boot, Vaadin), Node.js, Go, REST APIs, application security remediation
+
+**Freelance Full-Stack Developer** · Jan 2018 – Sep 2023\
+Built, deployed, and maintained web apps for 30+ clients with React, Next.js, Vue/Nuxt, and Node.js
+
+## Stack
+
+| Area | Tools |
+| --- | --- |
+| Cloud and containers | Linux (RHEL), AWS (EKS, EC2), Azure, Kubernetes, OpenShift, Karpenter, Istio, Docker |
+| Infrastructure as code | Terraform, Ansible |
+| CI/CD | GitLab CI, GitHub Actions |
+| Observability | Dynatrace, Elastic Stack (ELK), LGTM (Loki, Grafana, Tempo, Mimir) |
+| Languages | Python, Bash, Go, Java (Spring Boot), Node.js |
+| AI and AIOps | AWS DevOps Agent, Claude, GitHub Copilot, Cursor |
 
 ## Certifications
 
-Microsoft Azure Developer (AZ-204) · Azure Fundamentals (AZ-900) · AWS Certified Cloud Practitioner · Google IT Support Professional Certificate
+AWS Certified Cloud Practitioner · Microsoft Azure Developer Associate (AZ-204) · Microsoft Azure Fundamentals (AZ-900) · Google IT Support Professional
+
+## Also
+
+- **BS Computer Engineering, Pamantasan ng Lungsod ng Maynila (2023)**
+- **Mentor at ULAP.org (2024 – present).** I help early-career developers get their first engineering roles.
 
 ## Contact
 
