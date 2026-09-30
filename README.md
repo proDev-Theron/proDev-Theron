@@ -36,6 +36,14 @@ I use mental models, the latticework Charlie Munger describes, as everyday worki
 | **Checklists**: make the safe path the default | Every production change followed the same plan, window, rollback, and recorded outcome | 69 changes, about 6% rolled back safely |
 | **The map is not the territory**: check the source | Verified on-call attribution against raw logs before publishing any number | On-call numbers checked against raw logs |
 
+## What people say
+
+> I'm incredibly grateful to my mentor, Theron Bueno, for an insightful and inspiring six-month mentorship. Thank you for generously sharing your knowledge, not just on technical topics but also on essential soft skills like tailoring resumes, interview preparation, and confidence during an interview.
+>
+> **Christian Ortiz**, Full-Stack Software Developer, mentored through ULAP.org
+
+I started as one of ten ULAP.org cloud scholars in the Philippines. Today I mentor the next cohort.
+
 ## Start here
 
 A fixed-price **2-week reliability review**: architecture walkthrough, a look at your alerts, incidents, and change process, then a written report ranking your top risks by business impact, plus fixes for the quick wins. Continue monthly if it's useful. [Ask about a review](mailto:prodev.theron@gmail.com?subject=Reliability%20review)
