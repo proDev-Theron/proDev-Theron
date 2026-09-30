@@ -57,6 +57,13 @@ Web applications for 30+ clients with React, Next.js, Node.js, and Nuxt
 
 Two production postmortems (one for an incident I caused), the team RCA template, EKS and MySQL upgrade runbooks, a Flagger progressive-delivery guide, and critical user journey docs.
 
+## Side project
+
+**[tugtogbytes](https://tugtogbytes.vercel.app)**, a live set-prep app for gigging musicians. I build it with AI coding agents and own the reliability layer myself:
+
+- Every pull request is gated by browser tests against a production build. I cut CI from 5m50s to under 4 minutes after tracing a stall to a package mirror serving 105 kB/s.
+- **Production probe with AI triage:** synthetic checks against two SLOs every 3 hours and after each deploy. On failure, Claude reads the failed checks, recent deploys, and commits, and writes a likely cause into one incident issue. It's advisory only and never rolls back or changes anything.
+
 ## Certifications
 
 AWS Certified Cloud Practitioner · Microsoft Azure Developer Associate (AZ-204) · Microsoft Azure Fundamentals (AZ-900) · Google IT Support Professional
