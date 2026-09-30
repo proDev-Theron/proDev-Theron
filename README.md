@@ -1,93 +1,66 @@
 # Theron Bueno
 
-**Site Reliability Engineer for fintech and regulated SaaS** · AWS · Azure · Kubernetes · Observability · AIOps · Metro Manila, Philippines
+**Site Reliability Engineer · Platform** · AWS · EKS · Terraform · Networking · Observability · UTC+8
 
-I keep production systems up and make every change safe and auditable. SRE at a digital bank. Previously SRE and backend engineer at ING.
+I find the actual failure mechanism in production problems, then change the system so it's less likely to recur. SRE at a digital bank, with a software engineering background and 7+ years building and running production systems.
 
-**Available for remote SRE contracts · UTC+8** · [Email me](mailto:prodev.theron@gmail.com)
+**Open to senior SRE and platform roles, employee or long-term contract** · [Email me](mailto:prodev.theron@gmail.com)
 
-## Highlights
+## Selected evidence
 
-- **Recovered 130,000+ stuck transactional emails in 90 minutes, with none lost,** during an SMTP outage. I tuned Postfix concurrency and worker allocation and worked through the queue in targeted batches.
-- **Eliminated intermittent 504s at the production ingress.** I traced them to an ALB/Istio idle timeout mismatch and shipped a mesh-wide proxy fix through Terraform with zero downtime.
-- **Upgraded EKS with zero downtime** through an automated two-phase rollout using Terraform and Karpenter disruption budgets.
-- **Responded to production alerts in a 3.7-minute median vs the team's 6.0 minutes** across 277 alerts while on call for a legal tech SaaS platform.
-- **Ran 69 production changes through change management** (38 deployments, 9 emergency changes), each with a change request and recorded outcome; about 6% rolled back safely.
-- **Expanded Dynatrace coverage and proactive alerting** on critical banking services so incidents are caught earlier.
-- **Made Elastic Stack upgrades safe across 100+ nodes** with Ansible tasks that check cluster health before applying changes. I also reordered shard allocation and node shutdown to stabilize DR exercises.
-- **Closed security findings:** remediated flagged vulnerabilities across 100+ RHEL VMs and resolved all high-severity code-scan findings in three Go services.
-
-## AI-assisted ops tooling I built
-
-- **Azure DevOps pipeline watcher:** monitors multi-hour deployment pipelines, classifies failed stages (timeout, transient, data validation, fatal), and auto-retries only the safe ones. It never reruns real migration errors.
-- **Salesforce ops agent:** works cases, incidents, and change requests from a pasted link. Every write needs explicit human approval, enforced by tool permissions rather than instructions.
-- **Squadcast metrics pipeline:** read-only API export that works within the 1,000-incident and 6-month limits, checks attribution against raw logs, and outputs aggregates only.
-- **Production probe with AI triage:** synthetic checks against two SLOs every 3 hours and after each deploy. On failure, Claude reads the failed checks, recent deploys, and commits and writes a likely cause into one incident issue. Advisory only: it never rolls back or changes anything.
+- **Cut ELB 504s by >99%** (from ~22/hour to ~0.06/hour) after analyzing ~13.6M load-balancer log lines and finding an ALB↔Envoy idle-timeout mismatch. Later rounds found Istio retry behavior and frontend resource limits. A September regression is still under investigation, and its leading hypothesis is not yet proven.
+- **Owned a Sev-2 I caused.** A stale Terraform branch auto-applied to production and destroyed 16 network resources. I wrote the postmortem and drove approvals and branch protection across 5 IaC repos, taking peer-approved merges from 25% (7/28) to 100% (13/13).
+- **Migrated release publishing for 8 services to ECR.** Tag validation caught 6 release defects before release, and 23 non-production workloads were cut over with digest checks and automatic rollback. Production cutover is in progress.
+- **Upgraded MySQL 8.0 → 8.4** across test, staging, and production, with pre-checks, runbooks, and a snapshot rollback plan. **Upgraded four EKS clusters 1.32 → 1.34** and wrote the runbook.
+- **Mail relays (~1.2M requests/day):** traced a 22 GB disk exhaustion to ~15M deferred-message log entries, added hourly rotation, and rolled out DKIM/SPF-signed relays with weighted DNS.
+- **Contract on-call (legal tech SaaS):** 3.7-minute median alert acknowledgement vs the team's 6.0 across 277 alerts, and 69 production changes run through change requests.
 
 ## How I think
 
-I use mental models, the latticework Charlie Munger describes, as everyday working tools. Where each one paid off:
+I use mental models, Charlie Munger's latticework, as everyday tools. Each one changed a real decision:
 
-| Model | How I applied it | Result |
+| Principle | Model | Where it paid off |
 | --- | --- | --- |
-| **Inversion**: ask how it fails, then prevent that | Listed how customer traffic could drop during EKS upgrades and capped node disruption per workload | Zero-downtime upgrades |
-| **First principles**: fix the cause, not the symptom | Traced random 504s to mismatched ALB and Istio idle timeouts, fixed at the root mesh-wide | 100% of those errors gone |
-| **Second-order thinking**: ask "and then what?" | Released 130,000 queued emails in controlled batches instead of all at once | All delivered in 90 minutes, none lost |
-| **Margin of safety**: leave room for being wrong | AI ops tools can't write without human approval; upgrades run only after health checks pass | 100+ nodes upgraded safely |
-| **Checklists**: make the safe path the default | Every production change followed the same plan, window, rollback, and recorded outcome | 69 changes, about 6% rolled back safely |
-| **The map is not the territory**: check the source | Verified on-call attribution against raw logs before publishing any number | On-call numbers checked against raw logs |
+| Evidence before certainty | Map is not the territory | Stated a latency regression's leading cause as a hypothesis after ruling out deploys, routing, DB, Redis, and node pools. No production change on an unproven cause. |
+| Find the mechanism | First principles | 504s came from mismatched load-balancer and proxy idle timeouts. ELB 504s fell >99%. |
+| Ask how it happens again | Inversion | After my own incident, I built controls, not just a fix: 5 repos protected, 100% peer-approved merges. |
+| Leave a way back | Margin of safety | Registry cutovers with digest checks and automatic rollback; one rollback, then a clean retry. |
+| And then what? | Second-order thinking | ~$22.5k/year of tagged cost in a decommission, but $0 realizable compute savings given scheduler and Karpenter behavior. No overstated business case. |
+| Fix the system, not the symptom | Feedback loops | Replaced queue purging with a root-cause fix and hourly log rotation on the mail relays. |
 
-## What people say
+## What colleagues noticed
 
-> I'm incredibly grateful to my mentor, Theron Bueno, for an insightful and inspiring six-month mentorship. Thank you for generously sharing your knowledge, not just on technical topics but also on essential soft skills like tailoring resumes, interview preparation, and confidence during an interview.
->
-> **Christian Ortiz**, Full-Stack Software Developer, mentored through ULAP.org
+- Pairs technical analysis with a **recommended next step** for customers, which a teammate proposed making a team standard.
+- Fixed the **underlying mail relay issue** instead of the usual queue purging (internal "Achiever" recognition).
+- Solves problems **with little context, quickly** (internal "Quick Thinker" recognition).
 
-I started as one of ten ULAP.org cloud scholars in the Philippines. Today I mentor the next cohort.
-
-## Start here
-
-A fixed-price **2-week reliability review**: architecture walkthrough, a look at your alerts, incidents, and change process, then a written report ranking your top risks by business impact, plus fixes for the quick wins. Continue monthly if it's useful. [Ask about a review](mailto:prodev.theron@gmail.com?subject=Reliability%20review)
+> "I'm incredibly grateful to my mentor, Theron Bueno, for an insightful and inspiring six-month mentorship." **Christian Ortiz**, mentored through ULAP.org
 
 ## Experience
 
 **Site Reliability Engineer, Digital bank** · Dec 2025 – present\
-AWS (EKS, EC2), Kubernetes, Karpenter, Istio, Terraform, Dynatrace, AWS DevOps Agent and AI-assisted operations, Postfix, GitLab CI
-
-**Site Reliability Engineer, ING Hubs Philippines** · Dec 2024 – Dec 2025\
-Azure, RHEL, OpenShift, Elastic Stack (ELK), LGTM (Loki, Grafana, Tempo, Mimir), Ansible, disaster recovery planning and execution, capacity management, alert routing to Microsoft Teams
-
-**Backend Engineer, ING Hubs Philippines** · Dec 2023 – Dec 2024\
-Java (Spring Boot, Vaadin), Node.js, Go, REST APIs, application security remediation
+AWS, EKS, Karpenter, Istio/Envoy, Terraform, ECR, RDS MySQL, ElastiCache Redis, Transit Gateway, Dynatrace, Postfix
 
 **DevOps / Support Engineer (Contract), Legal tech SaaS company**\
-On-call for an Azure-hosted SaaS platform used by law firms: resolved Squadcast alerts and production incidents, ran change requests in maintenance windows, deployed through Azure DevOps pipelines, managed access, and worked cases in Salesforce
+Azure, Azure DevOps, Squadcast, Salesforce. Built a pipeline watcher that only retries safe failure classes and a ticketing agent where every write needs human approval.
 
-**Freelance Full-Stack Developer** · Jan 2018 – Sep 2023\
-Built, deployed, and maintained web apps for 30+ clients with React, Next.js, Vue/Nuxt, and Node.js
+**Site Reliability Engineer, ING Hubs Philippines** · Dec 2024 – Dec 2025\
+Azure, RHEL, OpenShift, Elastic Stack, LGTM, Ansible
 
-## Stack
+**Backend Engineer, ING Hubs Philippines** · Dec 2023 – Dec 2024\
+Java, Spring Boot, Node.js, Go
 
-| Area | Tools |
-| --- | --- |
-| Cloud and containers | Linux (RHEL), AWS (EKS, EC2), Azure, Kubernetes, OpenShift, Karpenter, Istio, Docker |
-| Infrastructure as code | Terraform, Ansible |
-| CI/CD | GitLab CI, GitHub Actions, Azure DevOps |
-| Observability | Dynatrace, Elastic Stack (ELK), LGTM (Loki, Grafana, Tempo, Mimir) |
-| Incident management | Squadcast, Salesforce |
-| Languages | Python, Bash, Go, Java (Spring Boot), Node.js |
-| AI and AIOps | AWS DevOps Agent, Claude, GitHub Copilot, Cursor |
+**Freelance Full-Stack Developer** · 2018 – 2023\
+Web applications for 30+ clients with React, Next.js, Node.js, and Nuxt
+
+## Writing
+
+Two production postmortems (one for an incident I caused), the team RCA template, EKS and MySQL upgrade runbooks, a Flagger progressive-delivery guide, and critical user journey docs.
 
 ## Certifications
 
 AWS Certified Cloud Practitioner · Microsoft Azure Developer Associate (AZ-204) · Microsoft Azure Fundamentals (AZ-900) · Google IT Support Professional
 
-## Also
-
-- **BS Computer Engineering, Pamantasan ng Lungsod ng Maynila (2023)**
-- **Mentor at ULAP.org (2024 – present).** I help early-career developers get their first engineering roles.
-- **[tugtogbytes](https://tugtogbytes.vercel.app) (side project).** A live set-prep app for gigging musicians, built with AI coding agents while I own the reliability layer: every pull request is gated by browser tests against a production build (CI cut from 5m50s to under 4 minutes after tracing a stall to a package mirror serving 105 kB/s), plus the production probe above.
-
-## Contact
+BS Computer Engineering, Pamantasan ng Lungsod ng Maynila (2023) · ULAP.org cloud scholar, now a mentor
 
 [LinkedIn](https://linkedin.com/in/prodev-theron) · [Email](mailto:prodev.theron@gmail.com) · [Portfolio source](https://github.com/proDev-Theron/nextjs-portfolio-website)
