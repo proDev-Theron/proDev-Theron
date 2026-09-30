@@ -26,6 +26,9 @@ Azure, RHEL, OpenShift, Elastic Stack (ELK), LGTM (Loki, Grafana, Tempo, Mimir),
 **Backend Engineer, ING Hubs Philippines** · Dec 2023 – Dec 2024\
 Java (Spring Boot, Vaadin), Node.js, Go, REST APIs, application security remediation
 
+**DevOps / Support Engineer (Contract), Legal tech SaaS company**\
+On-call for a SaaS platform used by law firms: resolved Squadcast alerts and production incidents, ran change requests in maintenance windows, deployed through Azure DevOps pipelines, managed access, and tracked cases in Salesforce
+
 **Freelance Full-Stack Developer** · Jan 2018 – Sep 2023\
 Built, deployed, and maintained web apps for 30+ clients with React, Next.js, Vue/Nuxt, and Node.js
 
@@ -35,8 +38,9 @@ Built, deployed, and maintained web apps for 30+ clients with React, Next.js, Vu
 | --- | --- |
 | Cloud and containers | Linux (RHEL), AWS (EKS, EC2), Azure, Kubernetes, OpenShift, Karpenter, Istio, Docker |
 | Infrastructure as code | Terraform, Ansible |
-| CI/CD | GitLab CI, GitHub Actions |
+| CI/CD | GitLab CI, GitHub Actions, Azure DevOps |
 | Observability | Dynatrace, Elastic Stack (ELK), LGTM (Loki, Grafana, Tempo, Mimir) |
+| Incident management | Squadcast, Salesforce |
 | Languages | Python, Bash, Go, Java (Spring Boot), Node.js |
 | AI and AIOps | AWS DevOps Agent, Claude, GitHub Copilot, Cursor |
 
