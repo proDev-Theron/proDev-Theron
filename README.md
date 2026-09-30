@@ -22,6 +22,7 @@ I keep production systems up and make every change safe and auditable. SRE at a 
 - **Azure DevOps pipeline watcher:** monitors multi-hour deployment pipelines, classifies failed stages (timeout, transient, data validation, fatal), and auto-retries only the safe ones. It never reruns real migration errors.
 - **Salesforce ops agent:** works cases, incidents, and change requests from a pasted link. Every write needs explicit human approval, enforced by tool permissions rather than instructions.
 - **Squadcast metrics pipeline:** read-only API export that works within the 1,000-incident and 6-month limits, checks attribution against raw logs, and outputs aggregates only.
+- **Production probe with AI triage:** synthetic checks against two SLOs every 3 hours and after each deploy. On failure, Claude reads the failed checks, recent deploys, and commits and writes a likely cause into one incident issue. Advisory only: it never rolls back or changes anything.
 
 ## How I think
 
@@ -85,6 +86,7 @@ AWS Certified Cloud Practitioner · Microsoft Azure Developer Associate (AZ-204)
 
 - **BS Computer Engineering, Pamantasan ng Lungsod ng Maynila (2023)**
 - **Mentor at ULAP.org (2024 – present).** I help early-career developers get their first engineering roles.
+- **[tugtogbytes](https://tugtogbytes.vercel.app) (side project).** A live set-prep app for gigging musicians, built with AI coding agents while I own the reliability layer: every pull request is gated by browser tests against a production build (CI cut from 5m50s to under 4 minutes after tracing a stall to a package mirror serving 105 kB/s), plus the production probe above.
 
 ## Contact
 
